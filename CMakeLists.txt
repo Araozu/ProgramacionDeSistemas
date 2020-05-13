@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.16)
+project(PS)
+
+set(CMAKE_CXX_STANDARD 14)
+
+add_executable(PS main.cpp laboratorio/lab2/ejercicio2/tanque.cpp laboratorio/lab2/ejercicio2/tanque.h)
