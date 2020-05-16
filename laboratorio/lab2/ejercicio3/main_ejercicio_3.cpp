@@ -3,16 +3,25 @@
 //
 
 #include "atleta.h"
+#include "carrera.h"
 
 int main() {
 
     Atleta atleta1("Juan Perez", 1, "Peruano", 19.05);
     Atleta atleta2("Usain Bolt", 8, "Jamaiquino", 19.005);
 
-    if (atleta1.getTiempo() < atleta2.getTiempo()) {
-        std::cout << "El atleta más rápido es " << atleta1.getNombre() << std::endl;
+    Atleta atletas[2] = {atleta1, atleta2};
+
+    Carrera carrera1(2000, 2, atletas);
+
+    Atleta* atletaGanador = carrera1.obtenerGanador();
+
+    if (atletaGanador) {
+        Atleta atleta = *atletaGanador;
+        std::cout << "El ganador es " << atleta.getNombre() << " con un tiempo de "
+            << atleta.getTiempo() << std::endl;
     } else {
-        std::cout << "El atleta más rápido es " << atleta2.getNombre() << std::endl;
+        std::cout << "La carrera no tiene participantes." << std::endl;
     }
 
     return 0;
