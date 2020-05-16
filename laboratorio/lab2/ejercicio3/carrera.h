@@ -5,19 +5,18 @@
 #ifndef EJERCICIO3_CARRERA_H
 #define EJERCICIO3_CARRERA_H
 #include "atleta.h"
+#include <vector>
 
 
 class Carrera {
 
 private:
     int distancia;
-    unsigned int numAtletas;
-    Atleta* atletas;
+    std::vector<Atleta> atletas;
 
 public:
-    Carrera(int _distancia, unsigned int _numAtletas, Atleta _atletas[]);
+    Carrera(int _distancia, std::vector<Atleta> _atletas);
     Atleta* obtenerGanador();
-
 
 };
 

@@ -10,13 +10,13 @@ int main() {
     Atleta atleta1("Juan Perez", 1, "Peruano", 19.05);
     Atleta atleta2("Usain Bolt", 8, "Jamaiquino", 19.005);
 
-    Atleta atletas[2] = {atleta1, atleta2};
+    std::vector<Atleta> atletas = { atleta1, atleta2 };
 
-    Carrera carrera1(2000, 2, atletas);
+    Carrera carrera1(2000, atletas);
 
     Atleta* atletaGanador = carrera1.obtenerGanador();
 
-    if (atletaGanador) {
+    if (atletaGanador != nullptr) {
         Atleta atleta = *atletaGanador;
         std::cout << "El ganador es " << atleta.getNombre() << " con un tiempo de "
             << atleta.getTiempo() << std::endl;
