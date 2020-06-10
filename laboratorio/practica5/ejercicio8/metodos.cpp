@@ -98,6 +98,7 @@ int eliminarFichero(int numFichas, tipoDatos* fichas) {
 
         if (posicion < 0 || posicion >= numFichas) {
             std::cout << "La posición indicada es invalida.";
+            return numFichas;
         } else {
             break;
         }
@@ -110,3 +111,34 @@ int eliminarFichero(int numFichas, tipoDatos* fichas) {
     return numFichas - 1;
 }
 
+void modificarFichero(int numFichas, tipoDatos* fichas) {
+    int posicion;
+    while (true) {
+        std::cout << "Ingresa la posición a modificar:";
+        std::cin >> posicion;
+
+        if (posicion < 0 || posicion >= numFichas) {
+            std::cout << "La posición indicada es invalida.";
+        } else {
+            break;
+        }
+    }
+
+    std::string nuevoNombre;
+    std::cout << "Ingresa el nuevo nombre (vacio para omitir):";
+    std::cin.ignore();
+    getline(std::cin, nuevoNombre);
+    if (!nuevoNombre.empty()) {
+        fichas[posicion].nombreFich = nuevoNombre;
+    }
+
+
+    std::string nuevoTamanio;
+    std::cout << "Ingresa el nuevo tamaño (vacio para omitir):";
+    std::cin.ignore();
+    getline(std::cin, nuevoTamanio);
+    if (!nuevoTamanio.empty()) {
+        fichas[posicion].tamanyo = std::stoi(nuevoTamanio);
+    }
+
+}
